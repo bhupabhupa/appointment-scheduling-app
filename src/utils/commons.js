@@ -72,20 +72,15 @@ export const compareMeetingDate = (a, b) => {
 
   export const sortObject = (obj) => {
     let keyList = Object.keys(obj).sort(compareKeys)
-    //console.log("viewMeeting Key", keyList)
-
 	const temp = {}
 	for (let i = 0; i < keyList.length; i++) {
-        console.log("viewMeeting Key", keyList[i])
         temp[keyList[i]] = obj[keyList[i]];
         delete obj[keyList[i]];
-        console.log("viewMeeting COM : ",i,  temp)
     }
 
     for (var i = 0; i < keyList.length; i++) { 
         obj[keyList[i]] = temp[keyList[i]]; 
-    }  
-    //console.log("viewMeeting COM : ", temp)
+    }
     return obj;
 }
 

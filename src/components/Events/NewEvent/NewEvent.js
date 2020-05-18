@@ -14,18 +14,11 @@ class NewEvent extends Component {
         selected60 : false
     }
 
-    // componentDidUpdate(prevProps) {
-    //     console.log("componentDidUpdate called")
-    // }
-
-
     componentDidUpdate(prevProps) {
         if(prevProps.selectedEvent !== this.props.selectedEvent) {
         
         const {event_name, duration, _id} = this.props.selectedEvent;
-        console.log("componentDidUpdate PROPS : ", event_name, duration, event_name && duration)
         if(event_name !== null && duration !== null) {
-            console.log("componentDidUpdate in IF : ")
             //this.props.initialize({'addEvent', 'event_name', event_name})
             this.selectedBox(duration);
             let custom_val = '';
@@ -101,7 +94,6 @@ class NewEvent extends Component {
     }
 
     render() {
-        console.log("New EVENT", this.props.show, this.props.selectedEvent)
         return (
             <Modal show={this.props.show} onHide={() => this.props.handleAddEvent('close')}>
         <Modal.Header closeButton>

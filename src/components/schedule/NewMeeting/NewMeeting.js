@@ -60,14 +60,12 @@ const NewMeeting  = (props) => {
 	}
 
 	const addMeetingHandler = (val) => {
-		console.log("addMeetingHandler : ", val.meetingTime, val.meetingDate, (val.meetingDate !== undefined && val.meetingDate.trim().length === 0));
 		if((val.meetingTime === undefined || val.meetingTime.trim().length === 0) || (val.meetingDate === undefined || val.meetingDate.trim().length === 0)) {
 			setFormError(true);
 			return
 		}
 		val["event_name"] = props.selectedEvent.event_name;
 		val["duration"] = props.selectedEvent.duration;
-		console.log("MEETING SUBMIT : ", val, props.selectedEvent._id, props.user._id);
 		props.dispatch(addMeeting(val, props.selectedEvent._id, props.user._id))
 		setFormSubmitted(true);
 	}
@@ -140,8 +138,6 @@ const NewMeeting  = (props) => {
 										tileDisabled={({ date, view }) => {
 											return (view === 'month' &&
 												(disabledDates.some(disabledDate => {
-													console.log("TileDate : ", date.getDay(), "\n", date.getTime())
-													//console.log(date.getDay() , " === " ,disabledDate.getDay())
 													return (
 														date.getFullYear() === disabledDate.getFullYear() &&
 														date.getMonth() === disabledDate.getMonth() &&

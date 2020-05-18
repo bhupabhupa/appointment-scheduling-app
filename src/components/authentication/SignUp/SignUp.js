@@ -14,10 +14,7 @@ class SignUp extends Component {
     
     onFormSubmit = async (val, saveUser) => {
 		this.setState({signUpFormSubmitted: true})
-		//console.log("history : ",history)
 		await saveUser(val);
-		//return <Redirect to="/" />;
-		//this.props.history.push("/");
 	}
 
     renderContent = () => {

@@ -25,29 +25,12 @@ class App extends Component {
 		alert('submitted')
 		//this.setState({loggedIn: true})
 	}
-	
-	// onLogin = async (val) => {
-	// 	//event.preventDefault();
-	// 	await this.props.userLogin(val);
-	// 	console.log("USER : ", this.props.user)
-	// 	if(this.props.user) {
-	// 		console.log("USER 1: ", this.props.loggedIn)
-	// 		//this.setState({loggedIn: true})
-	// 		//return (<Redirect to="/dashboad" />)
-	// 	}
-	// }
 
 	onFormSubmit = async (val, saveUser, history) => {
 		this.setState({signUpFormSubmitted: true})
-		//console.log("history : ",history)
-		//await saveUser(val, history);
-		//return <Redirect to="/" />;
-		//this.props.history.push("/");
 	}
 
-	render() {
-		console.log("loggedIn : ", this.props.loggedIn)
-		
+	render() {		
 		return (
 			<Container style={{paddingTop: '50px'}}>
 				<BrowserRouter>
@@ -55,11 +38,7 @@ class App extends Component {
 				<Route path="/" exact component={() => <Login />}/>
 				<Route path="/forgot_password" component={ForgotPassword} />
 				<Route path="/new_user" component={() => <SignUp  />} />
-				<Route path="/dashboard" component={Dashboard} />
-				{/* {this.state.loggedIn &&
-					<Route path="/dashboard" exact component={Dashboard} />
-				} */}
-				
+				<Route path="/dashboard" component={Dashboard} />				
 				<Route path="/reset_password/:user_id" exact component={ResetPassword} />
 
 				<Route path="/meeting/:user_id" exact component={ScheduleMeeting} />

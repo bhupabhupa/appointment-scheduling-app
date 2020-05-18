@@ -16,11 +16,9 @@ const EventList = (props) => {
 
 	useEffect(() => {
 		props.dispatch(eventAction.viewEvents(getUserId()));
-		//console.log("USER DATA : ");
 	}, [showAddEvent]);
 
 	const handleAddEvent = (event, action, selectedEvent) => {
-		console.log(event, action, selectedEvent)
 		if (event === 'open') {
 			setActionType(action);
 			setSelectedEvent(selectedEvent);
@@ -42,7 +40,7 @@ const EventList = (props) => {
 				<Row>
 					<Col style={{ marginBottom: '5px' }}>
 						<Card.Title>My Link</Card.Title>
-						<Card.Link>http://localhost:3000/meeting/{props.user_id}</Card.Link>
+						<Card.Link>https://stormy-cliffs-24292.herokuapp.com/meeting/{props.user_id}</Card.Link>
 					</Col>
 					<Col md="auto">
 						<Button onClick={() => handleAddEvent('open', 'Add', {})}>Add New Event Type</Button>

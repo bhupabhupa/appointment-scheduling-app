@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ScheduleDetails from '../ScheduleDetails/ScheduleDetails';
 import { Card, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { viewMeetings } from '../../../actions/meetingAction';
 import { getUserId, compareKeys } from '../../../utils/commons';
 

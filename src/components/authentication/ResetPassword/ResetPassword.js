@@ -22,7 +22,6 @@ const ResetPassword = (props) => {
 
     useEffect(() => {
         props.dispatch(getUser(props.match.params.user_id))
-        console.log("RESET PASS")
     })
 
     const handleResetPassword = (val) => {
@@ -87,7 +86,6 @@ function validate(values) {
 }
 
 function mapStateToProps(state, props) {
-    console.log("RESET PASS : ", state)
     const { user } = state.userReducer
     
 	return {
@@ -100,47 +98,3 @@ export default connect(mapStateToProps, null)(reduxForm({
 	form: 'resetForm',
 	destroyOnUnmount: true
 })(ResetPassword));
-
-
-// class ResetPassword extends Component {
-//     state = {
-//         validEmail : ''
-//     }
-
-//     componentDidMount() {
-//         this.props.dispatch(getUser(this.props.match.params.user_id))
-//         //this.setState({validEmail : user.email})
-//         // console.log("RESET PASS :",this.props.user, this.props.match.params.user_id)
-//         // if(this.props.user) {
-//         //     this.props.initialize({validEmail : this.props.user.email});
-//         // }
-        
-//     }
-	
-// 	renderFields = () => {
-// 		return resetFields.map((item) => {
-// 			return (
-// 				<Field component={FormFields} {...item} />
-// 			)
-// 		})
-//     }
-    
-//     handleResetPassword = (val) => {
-//         console.log("RESET PASS : ", val);
-//     }
-
-// 	render() {
-// 		return (
-// 			<Card style={{ padding: '10px', margin: '50px auto', width: '60%' }}>
-// 				<Card.Title className="text-center">Reset Password</Card.Title>
-// 				<Form onSubmit={this.props.handleSubmit(this.handleResetPassword)}>
-// 					{this.renderFields()}
-//                     <Field component="input" type="hidden" name="validEmail" />
-// 					<Button variant="primary" type="submit" >
-// 						Reset
-//                     </Button>
-// 				</Form>
-// 			</Card>
-// 		);
-// 	}
-// }

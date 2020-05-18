@@ -12,15 +12,12 @@ const navigation = () => {
     //     </div>
     // </nav>
     let user = JSON.parse(sessionStorage.getItem('user'));
-    console.log("USER : ", user)
     return(
     <Navbar fixed="top" bg="dark" variant="dark">
         <Navbar.Collapse className="justify-content-end" >
     <NavDropdown title={user.full_name} id="collasible-nav-dropdown">
         <NavDropdown.Item onClick={() => {
             sessionStorage.clear();
-            console.log(sessionStorage.getItem('user'))
-            console.log(sessionStorage.getItem('loggedIn'))
             window.location.reload();}
         }>Logout</NavDropdown.Item>
       </NavDropdown>

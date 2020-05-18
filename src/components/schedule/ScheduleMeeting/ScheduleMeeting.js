@@ -72,7 +72,6 @@ class ScheduleMeeting extends Component {
 
 
 function mapStateToProps(state, props) {
-	console.log("State MEETING : ", state)
 	return {
 		eventList: state.eventReducer.eventList,
 		meetingList: state.meetingReducer.meetingList,

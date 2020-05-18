@@ -3,11 +3,6 @@ import { Card, ListGroup, Col, Row } from 'react-bootstrap';
 import { getDateFormat, getEndTimeFormat } from '../../../utils/commons';
 
 const scheduleDetails = (props) => {
-    // <Card>
-    {
-        console.log("ScheduleDetails : ", props.meeting)
-    }
-
     const { first_name, last_name, duartion, meetingDate, meetingTime, event_name } = props.meeting[0];
     return (
 

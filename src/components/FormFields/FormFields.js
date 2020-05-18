@@ -3,7 +3,6 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 
 export default ({ input, label, placeholder, type, meta: { error, touched } }) => {
-    console.log("INPUT : ", input, placeholder);
     return (
         <Form.Group>
             <Form.Label>{label}</Form.Label>

@@ -6,7 +6,6 @@ export default function (state = {}, action) {
         case ADD_EVENT:
             return state;
         case VIEW_EVENTS:
-            console.log("ACTION : ", action.payload)
             return action.payload;
         default:
             return state;

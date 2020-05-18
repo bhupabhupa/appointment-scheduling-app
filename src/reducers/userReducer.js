@@ -1,4 +1,4 @@
-import { ADD_USER, USER_INFO, LOGGED_IN, GET_USER, RESET_PASSWORD } from '../actions/constants';
+import { ADD_USER, USER_INFO, GET_USER, RESET_PASSWORD } from '../actions/constants';
 
 export default function (state = {}, action) {
     
@@ -6,7 +6,6 @@ export default function (state = {}, action) {
         case ADD_USER:
             return state;
         case USER_INFO:
-            //console.log("action.payload : ", action.payload)
             return {
                 //action.payload,
                 user: action.payload.user,
@@ -14,7 +13,6 @@ export default function (state = {}, action) {
                 loggedIn: true
             }
         case GET_USER:
-            console.log("RESET PASS : ", action.payload)
             return {
                 user: action.payload.user
             }

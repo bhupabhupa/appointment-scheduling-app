@@ -10,7 +10,6 @@ export const addEvent = (values, event) => async dispatch => {
     
     let user_id = getUserId();
     let {event_name, duration, custom_val, _id} = values;
-    console.log(custom_val);
     if(custom_val && custom_val.trim().length > 0) {
         duration = custom_val;
     }
@@ -35,6 +34,5 @@ export const addEvent = (values, event) => async dispatch => {
 export const viewEvents = (user_id) => async dispatch => {
     //let user_id = getUserId();
 	const res = await axios.get(`${SERVER_URL}/api/v1/event/list/${user_id}`);
-    console.log("viewEvents : ", res.data)
 	dispatch({ type: VIEW_EVENTS, payload: res.data });
 };
