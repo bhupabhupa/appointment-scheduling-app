@@ -7,6 +7,7 @@ import * as eventAction from '../../../actions/eventAction';
 import { reset } from 'redux-form';
 import { getUserId } from '../../../utils/commons';
 import { Link } from 'react-router-dom';
+import { SERVER_URL } from '../../../actions/constants';
 
 const EventList = (props) => {
 
@@ -40,7 +41,7 @@ const EventList = (props) => {
 				<Row>
 					<Col style={{ marginBottom: '5px' }}>
 						<Card.Title>My Link</Card.Title>
-						<Card.Link>https://stormy-cliffs-24292.herokuapp.com/meeting/{props.user_id}</Card.Link>
+						<Card.Link>`${SERVER_URL}/meeting/{props.user_id}`</Card.Link>
 					</Col>
 					<Col md="auto">
 						<Button onClick={() => handleAddEvent('open', 'Add', {})}>Add New Event Type</Button>

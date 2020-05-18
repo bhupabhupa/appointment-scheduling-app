@@ -1,5 +1,5 @@
 //export const SERVER_URL = 'http://localhost:8088';
-export const SERVER_URL = 'https://stormy-cliffs-24292.herokuapp.com'
+export const SERVER_URL = 'http://ec2-18-220-188-45.us-east-2.compute.amazonaws.com:8088/'
 
 export const ADD_USER = 'add_user';
 export const GET_USER = 'get_user';
