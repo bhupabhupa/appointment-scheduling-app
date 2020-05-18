@@ -1,12 +1,11 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import EventDetails from '../EventDetails/EventDetails';
-import { Row, Col, Container, Button, Card, CardDeck } from 'react-bootstrap';
+import { Row, Col, Container, Button, Card } from 'react-bootstrap';
 import NewEvent from '../NewEvent/NewEvent';
 import { connect } from 'react-redux';
 import * as eventAction from '../../../actions/eventAction';
 import { reset } from 'redux-form';
 import { getUserId } from '../../../utils/commons';
-import { Link } from 'react-router-dom';
 import { CLIENT_URL } from '../../../actions/constants';
 
 const EventList = (props) => {

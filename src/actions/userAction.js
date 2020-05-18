@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SERVER_URL, ADD_USER, USER_INFO, LOGGED_IN, GET_USER, RESET_PASSWORD } from './constants';
+import { SERVER_URL, ADD_USER, USER_INFO, GET_USER, RESET_PASSWORD } from './constants';
 import { history } from '../utils/history';
 
 export const saveUser = (values) => async dispatch => {
@@ -20,6 +20,7 @@ export const userLogin = (values) => async dispatch => {
         history.push("/dashboard")
         sessionStorage.setItem('user', JSON.stringify(res.data.user));
         sessionStorage.setItem('loggedIn', true);
+        sessionStorage.setItem('token', res.data.token);
         dispatch({ type: USER_INFO, payload: res.data });
     }
 };

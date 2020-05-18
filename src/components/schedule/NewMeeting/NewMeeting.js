@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import Calendar from 'react-calendar';
 import { Field, reduxForm, change } from 'redux-form';
@@ -112,7 +112,6 @@ const NewMeeting  = (props) => {
 						<Col className="col-sm-5">
 							<Row>
 								<Col>
-									<Form>
 										<Row>
 											<Col>
 												<Field component={FormFields} label="First name" type="text" placeholder="First Name" name="first_name" />
@@ -128,7 +127,6 @@ const NewMeeting  = (props) => {
 												<Field className="form-control" component="input" type="hidden" name="meetingTime" />
 											</Col>
 										</Row>
-									</Form>
 								</Col>
 							</Row>
 							<Row>
@@ -168,7 +166,7 @@ const NewMeeting  = (props) => {
 										// )
 										if (selectedTime.length === 0) {
 											return (
-												<Col className="col-sm-3" style={{ marginBottom: '5px' }}><Button variant="outline-primary" onClick={() => onTimeSelect(time)}>{time}</Button></Col>
+												<Col key={time} className="col-sm-3" style={{ marginBottom: '5px' }}><Button variant="outline-primary" onClick={() => onTimeSelect(time)}>{time}</Button></Col>
 											)
 										}
 										let timePresent = false

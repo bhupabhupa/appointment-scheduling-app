@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Modal, Button, Card, Form, ListGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { Field, reduxForm, change } from 'redux-form';
 import FormFields from '../../FormFields/FormFields';
 
@@ -141,7 +140,7 @@ function validate(values) {
 	if (!values.event_name) {
         errors.event_name = `Event name is required`;
     }
-    if (!values.duration && !values .custom_val) {
+    if (!values.duration && !values.custom_val) {
         errors.event_name = `Select duration`;
     }
 

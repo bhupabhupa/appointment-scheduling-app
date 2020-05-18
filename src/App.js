@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Route, Switch, Redirect, HashRouter } from 'react-router-dom';
+import { Route, Switch, Redirect, HashRouter } from 'react-router-dom';
 import Login from './components/authentication/Login/Login';
 import Dashboard from './components/landing/Dashboard/Dashboard';
 import ScheduleMeeting from './components/schedule/ScheduleMeeting/ScheduleMeeting';

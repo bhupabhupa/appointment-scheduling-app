@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import { Card, Container, Row, Col } from 'react-bootstrap';
 import EventDetails from '../../Events/EventDetails/EventDetails';
 import NewMeeting from '../NewMeeting/NewMeeting';
 import { connect } from 'react-redux';
 import * as eventAction from '../../../actions/eventAction';
 import { getUser } from '../../../actions/userAction';
-import { viewMeetings } from '../../../actions/meetingAction';
+import { viewMeetingsSlots } from '../../../actions/meetingAction';
 
 
 class ScheduleMeeting extends Component {
@@ -18,7 +18,7 @@ class ScheduleMeeting extends Component {
 		this.props.dispatch(eventAction.viewEvents(this.props.match.params.user_id));
 		//this.props.match.params.user_id
 		this.props.dispatch(getUser(this.props.match.params.user_id));
-		this.props.dispatch(viewMeetings(this.props.match.params.user_id, 'present'))
+		this.props.dispatch(viewMeetingsSlots(this.props.match.params.user_id, 'present'))
 	}
 
 	handleAddMeeting = (event, selectedEvent) => {
@@ -47,7 +47,7 @@ class ScheduleMeeting extends Component {
 						{
 							this.props.eventList &&
 							this.props.eventList.map((event) => (
-								<Col style={{ marginBottom: '10px' }}><EventDetails event={event} showMeeting={this.handleAddMeeting} /></Col>
+								<Col key={event._id} style={{ marginBottom: '10px' }}><EventDetails event={event} showMeeting={this.handleAddMeeting} /></Col>
 							))
 						}
 					</Row>
@@ -72,6 +72,7 @@ class ScheduleMeeting extends Component {
 
 
 function mapStateToProps(state, props) {
+	console.log("NEW MEETING : ", state.meetingReducer.meetingList)
 	return {
 		eventList: state.eventReducer.eventList,
 		meetingList: state.meetingReducer.meetingList,

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Navigation from '../Navigation/Navigation';
-import SignUp from '../../authentication/SignUp/SignUp';
 import TitleBar from './TitleBar/TitleBar';
 
-import { Card, Tabs, Tab, Button } from 'react-bootstrap';
-import { Link, Redirect } from 'react-router-dom';
+import { Card, Button } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 import EventList from '../../Events/EventList/EventList';
 import ScheduleList from '../../Schedules/ScheduleList/ScheduleList';
 

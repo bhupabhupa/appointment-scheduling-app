@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
-import * as userActions from '../../../actions/userAction';
+import { Card } from 'react-bootstrap';
 import SignUpForm from '../SignUpForm/SignUpForm';
 import SignUpSuccess from '../SignUpForm/SignUpSuccess';
 

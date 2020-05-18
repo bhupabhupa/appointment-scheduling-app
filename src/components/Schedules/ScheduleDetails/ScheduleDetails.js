@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, ListGroup, Col, Row } from 'react-bootstrap';
+import { ListGroup, Col, Row } from 'react-bootstrap';
 import { getDateFormat, getEndTimeFormat } from '../../../utils/commons';
 
 const scheduleDetails = (props) => {
-    const { first_name, last_name, duartion, meetingDate, meetingTime, event_name } = props.meeting[0];
+    const { meetingDate } = props.meeting[0];
     return (
 
         <div>
