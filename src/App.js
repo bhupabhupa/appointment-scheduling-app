@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect, HashRouter } from 'react-router-dom';
 import Login from './components/authentication/Login/Login';
 import Dashboard from './components/landing/Dashboard/Dashboard';
 import ScheduleMeeting from './components/schedule/ScheduleMeeting/ScheduleMeeting';
@@ -33,7 +33,7 @@ class App extends Component {
 	render() {		
 		return (
 			<Container style={{paddingTop: '50px'}}>
-				<BrowserRouter>
+				<HashRouter>
 				<Switch>
 				<Route path="/" exact component={() => <Login />}/>
 				<Route path="/forgot_password" component={ForgotPassword} />
@@ -44,7 +44,7 @@ class App extends Component {
 				<Route path="/meeting/:user_id" exact component={ScheduleMeeting} />
 				<Redirect to="/" />
 				</Switch>
-				</BrowserRouter>
+				</HashRouter>
 			</Container>
 				
 				
