@@ -55,6 +55,10 @@ const EventList = (props) => {
 							<Col sm="4" style={{ marginBottom: '10px' }}><EventDetails isUser={true} event={event} showEvent={handleAddEvent} /></Col>
 						))
 					}
+					{
+						props.eventList && props.eventList.length === 0 &&
+						<Card.Title className="text-center" style={{marginTop: '10px'}}>No record found.</Card.Title>
+					}
 				</Row>
 			</Container>
 			{/* <CardDeck>

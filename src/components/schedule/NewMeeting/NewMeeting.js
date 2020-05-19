@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import Calendar from 'react-calendar';
 import { Field, reduxForm, change } from 'redux-form';
 import { TIMING } from '../../../actions/constants';
-import { addMeeting } from '../../../actions/meetingAction';
+import { addMeeting, viewMeetingsSlots } from '../../../actions/meetingAction';
 import { formatDate, getEndTimeFormat } from '../../../utils/commons';
 import FormFields from '../../FormFields/FormFields';
+import { connect } from 'react-redux';
 
 
 const disabledDates = [
@@ -28,14 +29,18 @@ const NewMeeting  = (props) => {
 	const [formError, setFormError] = useState(false);
 	const [selectedTime, setSelectedTime] = useState([]);
 
+	useEffect(() => {
+		props.dispatch(viewMeetingsSlots(props.user._id, 'present'))
+	},[formSubmitted])
+
 	
 
 	const onChange = (date) => {
 		setMeetingDate(date.toISOString());
 		props.dispatch(change('addMeeting', 'meetingDate', date.toISOString()));
 		let selectedTime = []
-		if (props.meetingList[date]) {
-			selectedTime = props.meetingList[date]
+		if (props.meetingList[date.toISOString()]) {
+			selectedTime = props.meetingList[date.toISOString()]
 				.map((obj) => (
 					{ duration: obj.duration, startTime: obj.meetingTime, endTime: getEndTimeFormat(obj.meetingTime, obj.duration) })
 				)
@@ -67,7 +72,9 @@ const NewMeeting  = (props) => {
 		val["event_name"] = props.selectedEvent.event_name;
 		val["duration"] = props.selectedEvent.duration;
 		props.dispatch(addMeeting(val, props.selectedEvent._id, props.user._id))
+		setSelectedTime([]);
 		setFormSubmitted(true);
+		props.dispatch(viewMeetingsSlots(props.user._id, 'present'))
 	}
 
 	const showConfirmation = () => (
@@ -106,7 +113,7 @@ const NewMeeting  = (props) => {
 				
 			</Modal.Header>
 
-			<Modal.Body>
+			<Modal.Body scrollable={true} style={{maxHeight: 'calc(100vh - 210px)', overflowY: 'auto'}}>
 				<Form onSubmit={props.handleSubmit(addMeetingHandler)}>
 					<Row>
 						<Col className="col-sm-5">
@@ -232,7 +239,13 @@ function validate(values) {
 	return errors;
 }
 
-export default (reduxForm({
+function mapStateToProps(state, props) {
+	return {
+		meetingList: state.meetingReducer.meetingList
+	}
+}
+
+export default connect(mapStateToProps, null)(reduxForm({
 	validate,
 	form: 'addMeeting',
 	destroyOnUnmount: true

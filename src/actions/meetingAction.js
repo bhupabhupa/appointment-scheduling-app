@@ -11,8 +11,8 @@ export const addMeeting = (values, event_id, user_id) => async dispatch => {
     dispatch(reset('addMeeting'));
 };
 
-export const viewMeetings = (user_id, dated) => async dispatch => {
-    const res = await axios.get(`${SERVER_URL}/api/v1/meeting/list/${user_id}/${dated}`,{headers:{
+export const viewMeetings = (user_id, dated, page_no) => async dispatch => {
+    const res = await axios.get(`${SERVER_URL}/api/v1/meeting/list/${user_id}/${dated}/${page_no}`,{headers:{
         "x-token":sessionStorage.getItem("token")
     }});
 	dispatch({ type: VIEW_MEETINGS, payload: res.data });

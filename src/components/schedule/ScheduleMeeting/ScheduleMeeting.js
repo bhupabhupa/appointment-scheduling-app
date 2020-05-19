@@ -5,7 +5,6 @@ import NewMeeting from '../NewMeeting/NewMeeting';
 import { connect } from 'react-redux';
 import * as eventAction from '../../../actions/eventAction';
 import { getUser } from '../../../actions/userAction';
-import { viewMeetingsSlots } from '../../../actions/meetingAction';
 
 
 class ScheduleMeeting extends Component {
@@ -18,7 +17,7 @@ class ScheduleMeeting extends Component {
 		this.props.dispatch(eventAction.viewEvents(this.props.match.params.user_id));
 		//this.props.match.params.user_id
 		this.props.dispatch(getUser(this.props.match.params.user_id));
-		this.props.dispatch(viewMeetingsSlots(this.props.match.params.user_id, 'present'))
+		//this.props.dispatch(viewMeetingsSlots(this.props.match.params.user_id, 'present'))
 	}
 
 	handleAddMeeting = (event, selectedEvent) => {
@@ -47,13 +46,14 @@ class ScheduleMeeting extends Component {
 						{
 							this.props.eventList &&
 							this.props.eventList.map((event) => (
-								<Col key={event._id} style={{ marginBottom: '10px' }}><EventDetails event={event} showMeeting={this.handleAddMeeting} /></Col>
+								<Col sm="4" key={event._id} style={{ marginBottom: '10px' }}><EventDetails event={event} showMeeting={this.handleAddMeeting} /></Col>
 							))
 						}
 					</Row>
 				</Container>
 			</Card.Body>
-			<NewMeeting meetingList={this.props.meetingList} show={this.state.showAddMeeting} selectedEvent={this.state.selectedEvent} user={this.props.user} handleAddMeeting={this.handleAddMeeting} />
+			{/* <NewMeeting meetingList={this.props.meetingList} show={this.state.showAddMeeting} selectedEvent={this.state.selectedEvent} user={this.props.user} handleAddMeeting={this.handleAddMeeting} /> */}
+			<NewMeeting show={this.state.showAddMeeting} selectedEvent={this.state.selectedEvent} user={this.props.user} handleAddMeeting={this.handleAddMeeting} />
 		</Card>
 	)
 
@@ -72,10 +72,9 @@ class ScheduleMeeting extends Component {
 
 
 function mapStateToProps(state, props) {
-	console.log("NEW MEETING : ", state.meetingReducer.meetingList)
 	return {
 		eventList: state.eventReducer.eventList,
-		meetingList: state.meetingReducer.meetingList,
+		//meetingList: state.meetingReducer.meetingList,
 		user: state.userReducer.user
 	}
 }
