@@ -1,7 +1,8 @@
-export const SERVER_URL = 'http://localhost:8088';
-//export const SERVER_URL = 'http://ec2-18-220-188-45.us-east-2.compute.amazonaws.com:8088'
-//export const CLIENT_URL = 'http://ec2-18-220-188-45.us-east-2.compute.amazonaws.com:8084'
-export const CLIENT_URL = 'http://localhost:3000'
+//export const SERVER_URL = 'http://localhost:8088';
+//export const CLIENT_URL = 'http://localhost:3000'
+export const SERVER_URL = 'http://ec2-18-220-188-45.us-east-2.compute.amazonaws.com:8088'
+export const CLIENT_URL = 'http://ec2-18-220-188-45.us-east-2.compute.amazonaws.com:8084'
+
 
 export const ADD_USER = 'add_user';
 export const GET_USER = 'get_user';
